@@ -76,6 +76,11 @@ import { ref, computed } from 'vue'
         <input v-model="newTask" @keyup.enter="addTask" placeholder="Tambah kegiatan..." />
         <button @click="addTask">Tambah</button>
       </div>
+      <div
+       v-if="showNotification"
+      :class="['notification', notification.includes('⚠️') ? 'notification-warning' : 'notification-success']">
+       {{ notification }}
+    </div>
       <table class="task-list">
       <thead>
         <tr>

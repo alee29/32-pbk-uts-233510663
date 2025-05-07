@@ -96,6 +96,17 @@ import { ref, computed } from 'vue'
         </tr>
       </tbody>
     </table>
+    <button @click="togglePending" class="toggle-btn">
+      {{ showPending ? 'Tutup' : 'Tugas yg Belum Dikerjakan' }}
+    </button>
+    <div v-if="showPending" class="pending-section">
+      <h2>Belum Dikerjakan</h2>
+      <ul>
+        <li v-for="(task, index) in pendingTasks":key="index" @click="markAsDone(task)">
+           {{ task.text }}🔔
+        </li>
+      </ul>
+    </div>
     <div v-if="confirmingDelete" class="modal-backdrop">
   <div class="modal-box">
     <p>🗑️ Yakin ingin menghapus kegiatan <strong>"{{ taskToDelete?.text }}"</strong>?</p>

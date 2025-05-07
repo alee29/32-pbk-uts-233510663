@@ -109,4 +109,8 @@ import { ref, computed } from 'vue'
 </template>
 
 <style scoped>
+.done {
+  text-decoration: line-through;
+  color: gray;
+}
 </style>

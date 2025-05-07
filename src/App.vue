@@ -94,6 +94,15 @@ import { ref, computed } from 'vue'
         </tr>
       </tbody>
     </table>
+    <div v-if="confirmingDelete" class="modal-backdrop">
+  <div class="modal-box">
+    <p>🗑️ Yakin ingin menghapus kegiatan <strong>"{{ taskToDelete?.text }}"</strong>?</p>
+    <div class="modal-actions">
+      <button @click="confirmDelete" class="confirm-btn">Ya, Hapus</button>
+      <button @click="cancelDelete" class="cancel-btn">Batal</button>
+    </div>
+  </div>
+</div>
 </div>
 </template>
 

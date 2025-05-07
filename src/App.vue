@@ -87,7 +87,9 @@ import { ref, computed } from 'vue'
       <tbody>
         <tr v-for="(task, index) in tasks" :key="index" :class="{ done: task.done }">
           <td :class="{ done: task.done }">{{ task.text }}</td>
-          
+          <td>
+            <input type="checkbox" v-model="task.done" />
+          </td>
           <td>
             <button @click="deleteTask(index)">❌</button>
           </td>

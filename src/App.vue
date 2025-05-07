@@ -76,6 +76,24 @@ import { ref, computed } from 'vue'
         <input v-model="newTask" @keyup.enter="addTask" placeholder="Tambah kegiatan..." />
         <button @click="addTask">Tambah</button>
       </div>
+      <table class="task-list">
+      <thead>
+        <tr>
+          <th>Kegiatan</th>
+          <th>Status</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(task, index) in tasks" :key="index" :class="{ done: task.done }">
+          <td :class="{ done: task.done }">{{ task.text }}</td>
+          
+          <td>
+            <button @click="deleteTask(index)">❌</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 </div>
 </template>
 
